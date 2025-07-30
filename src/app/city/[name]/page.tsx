@@ -17,7 +17,7 @@ interface IForecast {
 
 interface CityDetailProps {
   params: { name: string };
-  searchParams: { lat: string; lon: string };
+  searchParams: { lat?: string; lon?: string };
 }
 
 export default async function CityDetail({
