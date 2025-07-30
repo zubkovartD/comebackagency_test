@@ -14,6 +14,22 @@ pnpm dev
 bun dev
 ```
 
+# for run linter
+```
+npm run lint
+```
+
+# for run prettier
+```
+npm run format:fix
+```
+
+# for run tests
+```
+npm test
+```
+
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
