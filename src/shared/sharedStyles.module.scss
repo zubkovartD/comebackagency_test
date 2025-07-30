@@ -1,0 +1,27 @@
+.primaryButton {
+  background: linear-gradient(135deg, #6b73ff 0%, #000dff 100%);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 12px 24px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(107, 115, 255, 0.5);
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    background: linear-gradient(135deg, #000dff 0%, #6b73ff 100%);
+    box-shadow: 0 8px 16px rgba(0, 13, 255, 0.7);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    background: linear-gradient(135deg, #4c56cc 0%, #0011cc 100%);
+    box-shadow: 0 4px 8px rgba(0, 0, 255, 0.6);
+    transform: translateY(0);
+  }
+}
