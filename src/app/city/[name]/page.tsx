@@ -15,18 +15,18 @@ interface IForecast {
   };
 }
 
-interface CityDetailProps {
+type Props = {
   params: { name: string };
-  searchParams: { lat?: string; lon?: string };
-}
+  searchParams?: { lat?: string; lon?: string };
+};
 
 export default async function CityDetail({
   params,
   searchParams,
-}: CityDetailProps) {
+}: Props) {
   const name = decodeURIComponent(params.name ?? "");
-  const lat = searchParams.lat;
-  const lon = searchParams.lon;
+  const lat = searchParams?.lat;
+  const lon = searchParams?.lon;
 
   if (!lat || !lon) {
     return <div>Latitude and longitude are required</div>;
