@@ -16,17 +16,19 @@ interface IForecast {
 }
 
 type Props = {
-  params: { name: string };
-  searchParams?: { lat?: string; lon?: string };
+  params: Promise<{ name: string; }>;
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined; }>;
 };
 
 export default async function CityDetail({
   params,
   searchParams,
 }: Props) {
-  const name = decodeURIComponent(params.name ?? "");
-  const lat = searchParams?.lat;
-  const lon = searchParams?.lon;
+  const { name } = await params;
+  const awaitedSearchParams = await searchParams;
+  const cityName = decodeURIComponent(name ?? "");
+  const lat = awaitedSearchParams?.lat;
+  const lon = awaitedSearchParams?.lon;
 
   if (!lat || !lon) {
     return <div>Latitude and longitude are required</div>;
@@ -49,7 +51,7 @@ export default async function CityDetail({
 
   return (
     <div>
-      <h2>Weather in the city: {name}</h2>
+      <h2>Weather in the city: {cityName}</h2>
       <p>Clouds: {forecast?.current?.clouds}</p>
       <p>
         Sunrise:{" "}
